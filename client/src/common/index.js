@@ -1,5 +1,6 @@
-const backendDomin = "http://localhost:8080"
-
+// import { useParams } from "react-router-dom"
+const backendDomin = "http://localhost:9000"
+// eslint-disable-next-line react-hooks/rules-of-hooks
 const SummaryApi = {
     signUP : {
         url : `${backendDomin}/api/signup`,
@@ -12,6 +13,14 @@ const SummaryApi = {
     current_user : {
         url : `${backendDomin}/api/user-details`,
         method : "get"
+    },
+    forgotPassword : {
+        url : `${backendDomin}/api/forgot-password`,
+        method : "post"
+    },
+    resetPassword : {
+        url : `${backendDomin}/api/reset-password`,
+        method : "put"
     },
     logout_user : {
         url : `${backendDomin}/api/userLogout`,

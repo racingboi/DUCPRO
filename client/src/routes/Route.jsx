@@ -8,7 +8,10 @@ import Cart from '../pages/Cart';
 import AdminPanel from '../pages/admin/AdminPanel';
 import AllUsers from '../pages/admin/AllUsers';
 import AllProducts from '../pages/admin/AllProducts';
-// import AllProducts from '../pages/admin/AllProducts';
+import CategoryProduct from '../pages/CategoryProduct';
+import SearchProduct from '../pages/SearchProduct';
+import ProductDetails from '../pages/ProductDetails';
+import ResetPassword from "../pages/ResetPassword";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,22 +33,26 @@ const router = createBrowserRouter([
         path: "sign-up",
         element: <SignUp />
       },
-      // {
-      //   path: "product-category",
-      //   element: <CategoryProduct />
-      // },
-      // {
-      //   path: "product/:id",
-      //   element: <ProductDetails />
-      // },
+      {
+        path: "reset-password/:id",
+        element: <ResetPassword />
+      },
+      {
+        path: "product-category",
+        element: <CategoryProduct />
+      },
+      {
+        path: "product/:id",
+        element: <ProductDetails />
+      },
       {
         path: 'cart',
         element: <Cart />
       },
-      // {
-      //   path: "search",
-      //   element: <SearchProduct />
-      // },
+      {
+        path: "search",
+        element: <SearchProduct />
+      },
       {
         path: "admin-panel",
         element: <AdminPanel />,

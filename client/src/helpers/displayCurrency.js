@@ -1,12 +1,11 @@
-const displayINRCurrency = (num) => {
-    const formatter = new Intl.NumberFormat('en-IN',{
+const displayVNDCurrency = (num) => {
+    const formatter = new Intl.NumberFormat('vn',{
         style : "currency",
-        currency : 'INR',
+        currency : 'VND',
         minimumFractionDigits : 2
     })
 
     return formatter.format(num)
-
 }
 
-export default displayINRCurrency
+export default displayVNDCurrency
