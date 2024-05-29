@@ -89,29 +89,33 @@ const Header = () => {
 
             {
               menuDisplay && (
-                <div className='absolute bg-white bottom-0 top-11 h-fit p-2 shadow-lg rounded' >
-                  <nav>
-                    {
-                      user?.role === ROLE.ADMIN && (
-                        <Link to={"/admin-panel/all-products"} className='whitespace-nowrap hidden md:block hover:bg-slate-100 p-2' onClick={() => setMenuDisplay(preve => !preve)}>Admin Panel</Link>
-                      )
-                    }
+                    <div className='absolute bg-white bottom-0 top-11 h-fit p-2 shadow-lg rounded'>
+                      <nav>
+                        {user?.role === ROLE.ADMIN ? (
+                            <Link to="/admin-panel/all-products"
+                                  className="whitespace-nowrap hidden md:block hover:bg-slate-100 p-2"
+                                  onClick={() => setMenuDisplay(prev => !prev)}>Admin Panel</Link>
+                        ) : user?.role === ROLE.GENERAL ? (
+                            <Link to="/profile/my-account" className="whitespace-nowrap hidden md:block hover:bg-slate-100 p-2"
+                                  onClick={() => setMenuDisplay(prev => !prev)}>Profile</Link>
+                        ) : null}
+                      </nav>
 
-                  </nav>
-                </div>
-              )
+                    </div>
+                )
             }
 
           </div>
 
           {
-            user?._id && (
-              <Link to={"/cart"} className='text-2xl relative'>
-                <span><FaShoppingCart /></span>
+              user?._id && (
+                  <Link to={"/cart"} className='text-2xl relative'>
+                    <span><FaShoppingCart/></span>
 
-                <div className='bg-red-600 text-white w-5 h-5 rounded-full p-1 flex items-center justify-center absolute -top-2 -right-3'>
-                  <p className='text-sm'>{context?.cartProductCount}</p>
-                </div>
+                    <div
+                        className='bg-red-600 text-white w-5 h-5 rounded-full p-1 flex items-center justify-center absolute -top-2 -right-3'>
+                      <p className='text-sm'>{context?.cartProductCount}</p>
+                    </div>
               </Link>
             )
           }
