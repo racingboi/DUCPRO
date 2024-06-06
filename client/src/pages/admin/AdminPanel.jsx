@@ -4,6 +4,9 @@ import { useSelector } from 'react-redux'
 import { FaRegCircleUser } from "react-icons/fa6";
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import ROLE from '../../common/role';
+import { FaUsersGear } from "react-icons/fa6";
+import { AiFillProduct } from "react-icons/ai";
+import {FaCartPlus} from "react-icons/fa";
 
 const AdminPanel = () => {
     const user = useSelector(state => state?.user?.user)
@@ -37,8 +40,18 @@ const AdminPanel = () => {
                  {/***navigation */}       
                 <div>   
                     <nav className='grid p-4'>
-                        <Link to={"all-users"} className='px-2 py-1 hover:bg-slate-100'>All Users</Link>
-                        <Link to={"all-products"} className='px-2 py-1 hover:bg-slate-100'>All product</Link>
+                        <Link to={"all-users"} className='flex items-center gap-1 px-2 py-1 hover:bg-slate-100'>
+                            <FaUsersGear/>
+                           <span>Users</span>
+                        </Link>
+                        <Link to={"all-products"} className='flex items-center gap-1 px-2 py-1 hover:bg-slate-100'>
+                           <AiFillProduct/>
+                            <span>Products</span>
+                        </Link>
+                        <Link to={"all-orders"} className='flex items-center gap-1 px-2 py-1 hover:bg-slate-100'>
+                            <FaCartPlus />
+                            <span>Orders</span>
+                        </Link>
                     </nav>
                 </div>  
         </aside>

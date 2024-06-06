@@ -4,18 +4,20 @@ import SignUp from '../pages/Register';
 import Login from '../pages/Login';
 import ForgotPassowrd from '../pages/ForgotPassowrd';
 import Home from '../pages/Home';
-import Cart from '../pages/Cart';
+import Cart from '../pages/cart/Cart.jsx';
 import AdminPanel from '../pages/admin/AdminPanel';
-import AllUsers from '../pages/admin/AllUsers';
+import AllUsers from '../pages/admin/users/AllUsers.jsx';
 import AllProducts from '../pages/admin/AllProducts';
 import CategoryProduct from '../pages/CategoryProduct';
 import SearchProduct from '../pages/SearchProduct';
 import ProductDetails from '../pages/ProductDetails';
 import ResetPassword from "../pages/ResetPassword";
 import {Profile} from '../pages/profile/Profile.jsx';
-import {MyAccount} from "../pages/profile/MyAccount.jsx";
+import MyAccount from "../pages/profile/MyAccount.jsx";
 import {Address} from "../pages/profile/Address.jsx";
 import {Orders} from "../pages/profile/Orders.jsx";
+import {OrderPage} from "../pages/order/OrderPage.jsx";
+import {OrderAdmin} from "../pages/admin/order/orders.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />
+      },
+      {
+        path: "orders",
+        element: <OrderPage />
       },
       {
         path: "forgot-password",
@@ -86,6 +92,10 @@ const router = createBrowserRouter([
           {
             path: "all-products",
             element: <AllProducts />
+          },
+          {
+            path: "all-orders",
+            element: <OrderAdmin />
           }
         ]
       },

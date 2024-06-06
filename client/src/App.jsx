@@ -21,7 +21,7 @@ function App() {
     })
 
     const dataApi = await dataResponse.json()
-
+    localStorage.setItem('user', JSON.stringify(dataApi.data))
     if (dataApi.success) {
       dispatch(setUserDetails(dataApi.data))
     }
@@ -37,14 +37,15 @@ function App() {
 
     setCartProductCount(dataApi?.data?.count)
   }
-
+const data = localStorage.getItem('user')
   useEffect(() => {
     /**user Details */
     fetchUserDetails()
     /**user Details cart product */
     fetchUserAddToCart()
 
-  }, [])
+
+  }, [data])
   return (
     <>
       <Context.Provider value={{

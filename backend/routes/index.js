@@ -24,13 +24,16 @@ const searchProduct = require('../controller/product/searchProduct')
 const filterProductController = require('../controller/product/filterProduct')
 const forgotPassword = require('../controller/user/ForgotPassowrd')
 const resetPassword = require('../controller/user/ResetPassword')
-
+const deleteProduct = require('../controller/product/deleteProduct')
+const updateCurrent = require('../controller/user/updateCurrent')
+const { createOrder, getOrders, getOrder, updateOrder, deleteOrder } = require('../controller/orders/OrderControler')
 router.post("/signup",userSignUpController)
 router.post("/signin",userSignInController)
 router.get("/user-details",authToken,userDetailsController)
 router.get("/userLogout",userLogout)
 router.post('/forgot-password', forgotPassword);
 router.put('/reset-password/:token',resetPassword);
+router.put('/update-current',updateCurrent)
 
 
 //admin panel 
@@ -46,6 +49,7 @@ router.post("/category-product",getCategoryWiseProduct)
 router.post("/product-details",getProductDetails)
 router.get("/search",searchProduct)
 router.post("/filter-product",filterProductController)
+router.post("/delete-product",authToken,deleteProduct)
 
 //user add to cart
 router.post("/addtocart",authToken,addToCartController)
@@ -53,6 +57,13 @@ router.get("/countAddToCartProduct",authToken,countAddToCartProduct)
 router.get("/view-card-product",authToken,addToCartViewProduct)
 router.post("/update-cart-product",authToken,updateAddToCartProduct)
 router.post("/delete-cart-product",authToken,deleteAddToCartProduct)
+// order
+
+router.post("/create-order",createOrder);
+router.get("/get-orders",getOrders);
+router.get("/get-order/:id",getOrder);
+router.post("/update-order",updateOrder);
+router.post("/delete-order/:id",authToken,deleteOrder);
 
 
 

@@ -1,5 +1,5 @@
 // import { useParams } from "react-router-dom"
-const backendDomin = "http://localhost:9000"
+const backendDomin = "http://localhost:8080"
 // eslint-disable-next-line react-hooks/rules-of-hooks
 const SummaryApi = {
     signUP : {
@@ -9,6 +9,14 @@ const SummaryApi = {
     signIn : {
         url : `${backendDomin}/api/signin`,
         method : "post"
+    },
+    deleteProduct : {
+        url : `${backendDomin}/api/delete-product`,
+        method : "post"
+    },
+    Update_current_user : {
+        url : `${backendDomin}/api/update-current`,
+        method : "put"
     },
     current_user : {
         url : `${backendDomin}/api/user-details`,
@@ -85,7 +93,21 @@ const SummaryApi = {
     filterProduct : {
         url : `${backendDomin}/api/filter-product`,
         method : 'post'
-    }
+    },
+    // order
+    orderCreate : {
+        url : `${backendDomin}/api/create-order`,
+        method : 'post'
+    },
+    orderGet : {
+        url : `${backendDomin}/api/get-orders`,
+        method : 'get'
+    },
+    updateOrder : {
+        url : `${backendDomin}/api/update-order`,
+        method : 'post'
+    },
+
 }
 
 

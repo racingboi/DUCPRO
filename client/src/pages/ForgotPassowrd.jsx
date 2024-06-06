@@ -1,4 +1,4 @@
-import loginIcons from "../assets/signin.gif";
+import loginIcons from "../assets/forgotpasswnedSend.gif";
 import { useNavigate} from "react-router-dom";
 import {useContext, useState} from "react";
 import Context from "../context/index.jsx";
