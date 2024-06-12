@@ -11,7 +11,6 @@ const VerticalCardProduct = ({category, heading}) => {
   const [loading,setLoading] = useState(true)
   const loadingList = new Array(13).fill(null)
 
-  const [scroll,setScroll] = useState(0)
   const scrollElement = useRef()
 
   const { fetchUserAddToCart } = useContext(Context)

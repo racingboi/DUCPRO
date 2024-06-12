@@ -192,7 +192,21 @@ export const OrderPage = () => {
         const pay = document.getElementById('pay').value
         const address = `${selectedWard}, ${selectedDistrict}, ${selectedProvince}`
         const productId = data.map(item => item.productId._id)
-        const subTotal = total
+        const subTotal = total;
+        if(pay==='vnp'){
+            const response = await fetch(SummaryApi.create_payment_url.url, {
+                method: SummaryApi.create_payment_url.method,
+                headers: {
+                    "content-type": 'application/json'
+                },
+                body: JSON.stringify({
+                    orderId: '123456',
+                    amount: subTotal
+                })
+            })
+            const responseData = await response.json();
+           window.open(responseData)
+        }
         const response = await fetch(SummaryApi.orderCreate.url, {
             method: SummaryApi.orderCreate.method,
             headers: {

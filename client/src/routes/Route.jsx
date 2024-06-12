@@ -15,9 +15,11 @@ import ResetPassword from "../pages/ResetPassword";
 import {Profile} from '../pages/profile/Profile.jsx';
 import MyAccount from "../pages/profile/MyAccount.jsx";
 import {Address} from "../pages/profile/Address.jsx";
-import {Orders} from "../pages/profile/Orders.jsx";
+import Orders from "../pages/profile/Orders.jsx";
 import {OrderPage} from "../pages/order/OrderPage.jsx";
 import {OrderAdmin} from "../pages/admin/order/orders.jsx";
+import {Success} from "../components/success.jsx";
+import {Cancel} from "../components/cancel.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -76,6 +78,14 @@ const router = createBrowserRouter([
       {
         path: 'cart',
         element: <Cart />
+      },
+      {
+        path: "success",
+        element: <Success />
+      },
+      {
+        path: "cancel",
+        element: <Cancel />
       },
       {
         path: "search",

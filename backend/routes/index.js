@@ -26,7 +26,13 @@ const forgotPassword = require('../controller/user/ForgotPassowrd')
 const resetPassword = require('../controller/user/ResetPassword')
 const deleteProduct = require('../controller/product/deleteProduct')
 const updateCurrent = require('../controller/user/updateCurrent')
-const { createOrder, getOrders, getOrder, updateOrder, deleteOrder } = require('../controller/orders/OrderControler')
+const { createOrder, getOrders, getOrder, updateOrder, deleteOrder, updatePayment } = require('../controller/orders/OrderControler')
+
+// vnpay
+const {create_payment_url, sendSuccessEmail ,vnpay_return} = require('../controller/orders/VNP')
+// momo
+const {PayMomo} = require('../controller/orders/momo/momo')
+
 router.post("/signup",userSignUpController)
 router.post("/signin",userSignInController)
 router.get("/user-details",authToken,userDetailsController)
@@ -57,14 +63,21 @@ router.get("/countAddToCartProduct",authToken,countAddToCartProduct)
 router.get("/view-card-product",authToken,addToCartViewProduct)
 router.post("/update-cart-product",authToken,updateAddToCartProduct)
 router.post("/delete-cart-product",authToken,deleteAddToCartProduct)
-// order
 
+
+// order
 router.post("/create-order",createOrder);
 router.get("/get-orders",getOrders);
-router.get("/get-order/:id",getOrder);
+router.get("/get-order",getOrder);
 router.post("/update-order",updateOrder);
 router.post("/delete-order/:id",authToken,deleteOrder);
+router.post("/update-payment",updatePayment);
 
+// payment
+router.post("/create-payment-url",create_payment_url);
+router.get("/vnpay-return",vnpay_return);
+router.post("/send-mail",sendSuccessEmail);
+router.post("/create-momo-payment",PayMomo);
 
 
 

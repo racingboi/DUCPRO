@@ -107,6 +107,28 @@ const SummaryApi = {
         url : `${backendDomin}/api/update-order`,
         method : 'post'
     },
+    updatePayment:{
+        url : `${backendDomin}/api/update-payment`,
+        method : 'post'
+    },
+    getOrderUser : {
+        url : `${backendDomin}/api/get-order`,
+        method : 'get'
+    },
+
+    // payment
+    create_payment_url : {
+        url : `${backendDomin}/api/create-payment-url`,
+        method : 'post'
+    },
+    vnpay_return : {
+        url : `${backendDomin}/api/vnpay_return`,
+        method : 'get'
+    },
+    sendMail : {
+        url : `${backendDomin}/api/send-mail`,
+        method : 'post'
+    }
 
 }
 
