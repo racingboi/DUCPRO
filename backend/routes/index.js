@@ -68,7 +68,7 @@ router.post("/delete-cart-product",authToken,deleteAddToCartProduct)
 // order
 router.post("/create-order",createOrder);
 router.get("/get-orders",getOrders);
-router.get("/get-order",getOrder);
+router.get("/get-order/:userId",getOrder);
 router.post("/update-order",updateOrder);
 router.post("/delete-order/:id",authToken,deleteOrder);
 router.post("/update-payment",updatePayment);

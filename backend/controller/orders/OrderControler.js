@@ -50,9 +50,10 @@ const getOrders = async (req, res) => {
 
 const getOrder = async (req, res) => {
     try {
-        const { userId } = req.body;
+        const { userId } = req.params;
         console.log("Searching for userId:", userId);
-        const order = await orders.findOne({ userId });
+        const order = await orders.find({ userId });
+        console.log("Order found:", order);
         if (!order) {
             return res.status(404).json({ message: "No order found", success: false });
         }
